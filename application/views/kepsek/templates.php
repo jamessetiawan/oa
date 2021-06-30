@@ -229,7 +229,18 @@
 );
 
 </script>
+              
+
+      
 <?php endif;?>
+
+<script>
+<?php if(empty($this->input->get('tab'))):?>
+    $('#myTab a[href="#tab1"]').tab('show');
+    <?php else:?>
+        $('#myTab a[href="#<?=$this->input->get('tab')?>"]').tab('show');
+    <?php endif;?>
+</script>
 </body>
 
 </html>

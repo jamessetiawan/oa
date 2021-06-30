@@ -52,9 +52,17 @@ class M_guru extends CI_Model
     }
 
     function GetDataStudents(){
-        $this->db->select('*,students.name as student_name, class_rooms.name as class_name');
+        $this->db->select('*,students.name as student_name, class_rooms.name as class_name,class_rooms.id as class_id');
         $this->db->from('students');
         $this->db->join('class_rooms', 'class_rooms.id = students.class_room_id');
+        return $this->db->get()->result();
+    }
+
+    function GetDataStudentClass(){
+        $this->db->select('*,students.name as student_name, class_rooms.name as class_name,class_rooms.id as class_id');
+        $this->db->from('students');
+        $this->db->join('class_rooms', 'class_rooms.id = students.class_room_id');
+        $this->db->group_by('class_name');
         return $this->db->get()->result();
     }
     function GetDataUsers(){

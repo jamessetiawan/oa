@@ -1,7 +1,25 @@
 
+<ul class="nav nav-tabs" id="myTab" role="tablist">
 
-              <div class="table-responsive">
-              <button class="btn btn-sm btn-primary float-right ml-2"><i class="fas fa-plus-circle"></i> Baru</button>
+<?php
+  $no=1;
+  foreach($StudentClass as $sc):?>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link " data-toggle="tab" href="#tab<?=$sc->class_id?>" role="tab" aria-selected="true"><?=$sc->class_name?></a>
+  </li>
+  <?php 
+  $no++;
+  endforeach;?>
+</ul>
+<div class="tab-content" id="myTabContent">
+<?php
+  $no=1;
+foreach($StudentClass as $sc):?>
+  <div class="tab-pane fade" id="tab<?=$sc->class_id?>" role="tabpanel">
+
+      <div class="table-responsive mt-3">
+      <button class="btn btn-sm btn-primary float-right ml-2" data-tab="tab<?=$sc->class_id?>"><i class="fas fa-plus-circle"></i> Baru</button>
+
                 <table class="table no-margin datatable">
                   <thead>
                   <tr>
@@ -15,16 +33,13 @@
                   <tbody>
 
                     <?php
-                     if(!empty($Student))
-                     {
-                          $no=1;
-                        foreach($Student as $std) 
-                        { 
-
-                            
+                  
+                          $ns=1;
+                        foreach($Student as $std):
+                          if($sc->class_id==$std->class_id): 
                     ?>
                           <tr>
-                            <td><?=$no++; ?></td>
+                            <td><?=$ns++; ?></td>
                             <td><?=$std->nis; ?></td>
                             <td><a href="<?=base_url('kepsek/student/detail/'.$std->nis)?>"><b><?=$std->student_name; ?></b></a></td>
                             <td>
@@ -39,13 +54,21 @@
                           </tr>
                   <?php
                           
-                      }
-                    }
+                        endif;
+                        endforeach;
+                      
                   ?>
                   
                     
                   </tbody>
                 </table>
               </div>
-              <!-- /.table-responsive -->
-      
+
+
+  </div>
+  <?php 
+  $no++;
+  endforeach;?>
+</div>
+
+

@@ -81,9 +81,10 @@ class Kepsek extends CI_Controller {
 		{
 
 
-
 			$this->load->model('M_guru');
 			if($method=="default"){
+				$data['StudentClass']=$this->M_guru->GetDataStudentClass();
+
 				$data['Student']=$this->M_guru->GetDataStudents();
 
 				$data['title']='Data Murid';
