@@ -11,18 +11,6 @@
         <?php endif;?> 
 
             <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav mr-auto">
-            <!-- <li class="nav-item active">
-                <a class="nav-link" href="<?=site_url('/web/index')?>">Home <span class="sr-only">(current)</span></a>
-            </li> -->
-            <!-- <?php if(!$this->session->userdata('Login')):?>
-
-            <li class="nav-item">
-                <a class="nav-link" href="<?=site_url('/web/login')?>">Login</a>
-            </li>
-            <?php endif;?> -->
-
-            </ul>
             <span class="navbar-text">
             <?php 
                 $site="";
