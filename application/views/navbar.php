@@ -1,5 +1,5 @@
 <body style="display:block;min-height:530px;
-    background:url('https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fG9mZmljZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60');background-size:cover;background-position:top center;">
+    background:url('<?=base_url('asset/img/bg.webp')?>');background-size:cover;background-position:top center;">
 <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
         <a class="navbar-brand" href="<?=base_url()?>">
         <img src="<?=base_url('asset/img/logo.png')?>" style="width:150px">
