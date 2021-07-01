@@ -46,12 +46,54 @@
                 <a href="<?=$site?>" style="border-radius:50px !important" class="btn btn-lg btn-primary rounded">Dashboard</a>
 
             <?php endif;?> 
-            <a href="<?=site_url('web/about')?>" style="border-radius:50px !important" class="btn btn-lg btn-outline-light rounded">More</a>
+            <a href="#"  data-toggle="modal" data-target="#siteYoutube" style="border-radius:50px !important" class="btn btn-lg btn-outline-danger rounded">Youtube</a>
+
+            <a href="#"  data-toggle="modal" data-target="#siteBootstrap" style="border-radius:50px !important" class="btn btn-lg btn-outline-light rounded">More</a>
 
             </div>
         </div>
     </main>
    
+
+ 
+<!-- Modal -->
+<div class="modal fade" id="siteBootstrap" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Site Bootstrap SMKN 1 Cijati</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <iframe src="https://smk-negeri-1-cijati.business.site/" frameborder="0" style="width:100%;min-height:600px"></iframe>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+ 
+<!-- Modal -->
+<div class="modal fade" id="siteYoutube" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Youtube SMKN 1 Cijati</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <iframe width="100%" height="500px" src="https://www.youtube.com/embed/6ijbbQY6GHY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+
    
   <!-- Bootstrap core JavaScript-->
   <script src="<?=base_url('asset/vendor/jquery/jquery.min.js')?>"></script>
