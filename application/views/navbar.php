@@ -2,8 +2,7 @@
     background:url('https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fG9mZmljZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60');background-size:cover;background-position:top center;">
 <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
         <a class="navbar-brand" href="<?=base_url()?>">
-        <img src="<?=base_url('asset/img/logo.png')?>" style="width:50px">
-        <span class="pt-2 mt-1 float-right">Online Administration</span>
+        <img src="<?=base_url('asset/img/logo.png')?>" style="width:150px">
         </a>
         <?php if($this->session->userdata('Login')):?>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
