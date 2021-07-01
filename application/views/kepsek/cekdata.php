@@ -63,7 +63,7 @@
                       ?>
                         
                         
-                      (<a href="<?php echo base_url('asset/dok/'.$GetDataDoc_read->upload_doc); ?>" download><i class="fa fa-download"></i> Download File<a>)
+                      <a href="<?php echo base_url('asset/dok/'.$GetDataDoc_read->upload_doc); ?>" download><i class="fa fa-download"></i> Download File<a>
 
 
                       <?php 
@@ -103,7 +103,7 @@
                         <input type="hidden" name="nik" value="<?=$nik?>">
                         <input type="hidden" name="kd_doc" value="<?php echo $GetDataDoc_read->kd_doc; ?>">
                         <textarea class="form-control" name="note_doc" rows="10" placeholder="Silahkan isi note perbaikan dokumen ... ..."></textarea>
-                        <button type="submit" class="btn btn-sm btn-block btn-warning">Simpan</button>
+                        <button type="submit" class="mt-2 btn btn-sm btn-block btn-info">Simpan</button>
 </form>                        
 
 
@@ -124,7 +124,7 @@
 
                         <input type="hidden" name="kd_doc" value="<?php echo $GetDataDoc_read->kd_doc; ?>">
                         <textarea class="form-control" name="note_doc" rows="10"><?php echo $GetDataDoc_read->note_doc ?></textarea>
-                        <button type="submit" class="btn btn-sm btn-block btn-warning">Simpan</button>
+                        <button type="submit" class="mt-2 btn btn-sm btn-block btn-info">Simpan</button>
 </form>        
 
                       <?php 
@@ -136,7 +136,7 @@
                       ?>
                         
                         <span class="badge badge-warning">Perbaikan</span>
-                        <button href="" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#Modal<?php echo $GetDataDoc_read->kd_doc ?>">Note</button>
+                        <button href="" class="btn btn-sm btn-link" data-toggle="modal" data-target="#Modal<?php echo $GetDataDoc_read->kd_doc ?>">Note</button>
                          <form>
           <div class="modal fade" id="Modal<?php echo $GetDataDoc_read->kd_doc ?>">
           <div class="modal-dialog">

@@ -63,7 +63,7 @@
                         
                         <button type="submit" class="btn btn-sm btn-block btn-warning mt-2">Update</button>
                       </div>
-                      (<a href="<?php echo base_url('asset/dok/'.$GetDataDoc_read->upload_doc); ?>" download><i class="fa fa-download"></i> Download File</a>)
+                      <a href="<?php echo base_url('asset/dok/'.$GetDataDoc_read->upload_doc); ?>" download><i class="fa fa-download"></i> Download File</a>
 </form>
 
                       <?php 

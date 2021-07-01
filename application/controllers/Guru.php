@@ -117,7 +117,7 @@ class Guru extends CI_Controller {
          	 $update['school_year_id']=$this->session->userdata('school_year_id');
         	 $this->M_guru->UpdateData('adm_doc','kd_doc',$kd_doc,$update);
 
-		     redirect(site_url('Guru'));
+		     redirect(site_url('Guru/upload_dokumen'));
 
 
 		}
