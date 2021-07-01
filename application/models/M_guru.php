@@ -5,17 +5,17 @@ class M_guru extends CI_Model
 {
     function AddData($tabel, $data=array())
     {
-        $this->db->insert($tabel,$data);
+        return $this->db->insert($tabel,$data);
     }
 
     function UpdateData($tabel,$fieldid,$fieldvalue,$data=array())
     {
-        $this->db->where($fieldid,$fieldvalue)->update($tabel,$data);
+       return $this->db->where($fieldid,$fieldvalue)->update($tabel,$data);
     }
 
     function hapusData($tabel,$fieldid,$fieldvalue)
     {
-        $this->db->where($fieldid,$fieldvalue)->delete($tabel);
+       return $this->db->where($fieldid,$fieldvalue)->delete($tabel);
     }
 
 
@@ -63,6 +63,11 @@ class M_guru extends CI_Model
         $this->db->from('students');
         $this->db->join('class_rooms', 'class_rooms.id = students.class_room_id');
         $this->db->group_by('class_name');
+        return $this->db->get()->result();
+    }
+    function GetDataClass(){
+        $this->db->select('*,class_rooms.name as class_name,class_rooms.id as class_id');
+        $this->db->from('class_rooms');
         return $this->db->get()->result();
     }
     function GetDataUsers(){

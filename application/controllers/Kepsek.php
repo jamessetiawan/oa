@@ -86,12 +86,37 @@ class Kepsek extends CI_Controller {
 				$data['StudentClass']=$this->M_guru->GetDataStudentClass();
 
 				$data['Student']=$this->M_guru->GetDataStudents();
+				$data['Class']=$this->M_guru->GetDataClass();
 
 				$data['title']='Data Murid';
 				$data['content']='kepsek/students';
 				$this->load->view('kepsek/templates',$data);
 			}elseif($method=="save"){
-
+				$ds=[];
+				$ds['nis']=$this->input->post('nis');
+				$ds['name']=$this->input->post('name');
+				$ds['gender']=$this->input->post('gender');
+				$ds['class_room_id']=$this->input->post('class');
+				$ds['bd_place']=$this->input->post('bd_place');
+				$ds['bd_date']=$this->input->post('bd_date');
+				$ds['nis']=$this->input->post('nis');
+				$ds['major']=$this->input->post('major');
+				$ds['address']=$this->input->post('address');
+				$ds['image']=$this->file_upload('./asset/student/','image');
+				$insert=$this->M_guru->AddData('students',$ds);
+				if($insert){
+					$this->session->set_flashdata('status','success');
+					$this->session->set_flashdata('message','Data ditambahkan');  
+					$this->session->set_flashdata('text','data berhasil disimpan'); 
+					redirect(site_url().'kepsek/students?tab=tab'.$ds['class_room_id']);
+	
+				}else{
+					$this->session->set_flashdata('status','error'); 
+					$this->session->set_flashdata('message','Data gagal ditambahkan'); 
+					$this->session->set_flashdata('text','terjadi kesalahan saat menambah data'); 
+	
+					redirect(site_url().'kepsek/students?tab=tab'.$ds['class_room_id']);
+				}
 			}
 		}else{redirect(site_url('web'));}
 	}
@@ -116,11 +141,6 @@ class Kepsek extends CI_Controller {
 		}else{redirect(site_url('web'));}
 	}
 	
-	
-
-
-
-
 	public function cekdata()
 	{
 
@@ -149,6 +169,21 @@ class Kepsek extends CI_Controller {
 		{redirect(site_url('web'));}
 	}
 
+	public function file_upload($dir = NULL,$input_name){
+		$config['upload_path'] = $dir;
+		$config['allowed_types'] = 'jpg|jpeg|png';
+		$config['encrypt_name'] = true;
+		$config['remove_spaces'] = true;
+		$config['file_ext_tolower'] = true;
+
+		$this->load->library('upload', $config);
+		if($this->upload->do_upload($input_name)){
+			// $data = array('upload_data' => $this->upload->data());
+			$upload_data = $this->upload->data(); 
+			$file_name =   $upload_data['file_name'];
+			return $file_name;
+		}
+	}
 
 	public function SimpanPeriksa()
 	{

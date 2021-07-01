@@ -211,35 +211,47 @@
 
     <!-- Custom scripts for all pages-->
     <script src="<?=base_url('asset/js/sb-admin-2.js')?>"></script>
-<!-- 
+    <!-- 
     <script src="<?=base_url('asset/vendor/chart.js/Chart.min.js')?>"></script>
 
     <script src="<?=base_url('asset/js/demo/chart-area-demo.js')?>"></script>
-    <script src="<?=base_url('asset/js/demo/chart-pie-demo.js')?>"></script> -->
-    <?php if(!empty($_GET['error']) && $_GET['error']=="file"):?>
+    <script src="<?=base_url('asset/js/demo/chart-pie-demo.js')?>"></script>
+    -->
+   
 
 <script>
-  Swal.fire(
-{
-  title: 'Upload gagal',
-  html: "file yang diupload hanya ekstensi <br>(.doc .xls .docx .xlsx .zip .rar)",
-  icon: 'error',
-  confirmButtonColor: '#4469d7',
-}
-);
+    <?php if(!empty($this->session->flashdata('status'))):?>
+      Swal.fire({
+        icon: '<?=$this->session->flashdata('status')?>',
+        title: '<?=$this->session->flashdata('message')?>',
+        text: '<?=$this->session->flashdata('text')?>',
+        confirmButtonColor: '#486dda',
 
-</script>
-              
-
-      
-<?php endif;?>
-
-<script>
-<?php if(empty($this->input->get('tab'))):?>
-    $('#myTab a[href="#tab1"]').tab('show');
-    <?php else:?>
-        $('#myTab a[href="#<?=$this->input->get('tab')?>"]').tab('show');
+      });
+    <?php endif; ?>
+     <?php if(!empty($_GET['error']) && $_GET['error']=="file"):?>
+        Swal.fire(
+            {
+            title: 'Upload gagal',
+            html: "file yang diupload hanya ekstensi <br>(.doc .xls .docx .xlsx .zip .rar)",
+            icon: 'error',
+            confirmButtonColor: '#4469d7',
+            }
+        );
     <?php endif;?>
+    $(document).ready(function(){
+        <?php if(empty($this->input->get('tab'))):?>
+            $('#myTab a[href="#tab1"]').tab('show');
+        <?php else:?>
+            $('#myTab a[href="#<?=$this->input->get('tab')?>"]').tab('show');
+        <?php endif;?>
+    
+        $('.btn-add').click(function(){
+            let url=$('#url-save').val();
+            $('#form-set').attr('action',url);
+            $("#form-set").trigger('reset'); //jquery
+        });
+    });
 </script>
 </body>
 
