@@ -211,14 +211,7 @@
 
     <!-- Custom scripts for all pages-->
     <script src="<?=base_url('asset/js/sb-admin-2.js')?>"></script>
-    <!-- 
-    <script src="<?=base_url('asset/vendor/chart.js/Chart.min.js')?>"></script>
-
-    <script src="<?=base_url('asset/js/demo/chart-area-demo.js')?>"></script>
-    <script src="<?=base_url('asset/js/demo/chart-pie-demo.js')?>"></script>
-    -->
    
-
 <script>
     <?php if(!empty($this->session->flashdata('status'))):?>
       Swal.fire({
