@@ -10,8 +10,8 @@
         </button>
         <?php endif;?> 
 
-            <div class="collapse navbar-collapse" id="navbarText">
-            <span class="navbar-text">
+            <div class="collapse navbar-collapse text-center" id="navbarText">
+            <div class="navbar-text text-right w-100">
             <?php 
                 $site="";
                 if($this->session->userdata('type')=="guru"){
@@ -22,13 +22,13 @@
                 }
             ?>
             <?php if($this->session->userdata('Login')):?>
-            <a href="<?=$site?>">Dashboard -
+            <a class="btn btn-sm btn-link d-sm-block d-lg-inline-block text-right" href="<?=$site?>"><i class="fas fa-square"></i> Dashboard -
             <?=ucfirst($this->session->userdata('type'))?>
-            </a> |
+            </a> 
 
-            <a href="<?=site_url('guru/logout')?>">Logout</a>
+            <a class="btn btn-sm btn-link d-sm-block d-lg-inline-block text-right" href="<?=site_url('guru/logout')?>"><i class="fas fa-square"></i> Logout</a>
             <?php endif;?>
-        </span>
+            </div>
         
         </div>
     </nav>

@@ -59,7 +59,7 @@
                     <span>Students</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo site_url('Kepsek/penjadwalan'); ?>">
+                <a class="nav-link" href="<?php echo site_url('Kepsek/board'); ?>">
                     <i class="fas fa-chalkboard-teacher"></i>
                     <span>Board Teacher</span></a>
             </li>
@@ -144,10 +144,12 @@
                         <small style="font-size:10pt">Sistem Informasi Monitoring Kelengkapan Administrasi Guru Tahun Ajaran : <?php echo $this->session->userdata('school_year_nama'); ?></small>
                       <br>
                       <span class="badge badge-pill badge-primary"><?php echo $title; ?></span>
-
                     </div>
                   
                     <div class="row">
+                    <div class="col-12">
+                    <button onclick="window.history.back();" class="float-right mb-1 btn btn-sm btn-link" style="text-decoration:none"><i class="fas fa-caret-square-left"></i> Kembali</button>
+                    </div>
                       <div class="col-12">
                       <?php $this->load->view($content); ?>
 
@@ -250,6 +252,26 @@
             $('#form-set').attr('action',url);
             $("#form-set").trigger('reset'); //jquery
         });
+
+        $('#data_guru').change(function(){
+            let check=$(this).val();
+            if(check!=""){
+                let data=$('#data_guru option:selected').html();
+                let databaru=data.split('/');
+                let nik=databaru[0];
+                let username=databaru[1];
+
+                $('#nik').val(nik);
+                $('#username').val(username);
+            }
+        });
+
+        $('.add-detail').click(function(){
+            let id=$(this).data('id');
+            $('#subject_teacher_id').val(id);
+        }); 
+       
+        
     });
 </script>
 </body>

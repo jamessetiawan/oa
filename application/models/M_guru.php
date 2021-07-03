@@ -25,6 +25,11 @@ class M_guru extends CI_Model
         return $query->result();
     }
 
+    function GetEmployee()
+    {
+        $query= $this->db->query("select * from employess");
+        return $query->result();
+    }
 
     function GetDataDoc($nik,$school_year_id)
     {
@@ -76,7 +81,12 @@ class M_guru extends CI_Model
         $this->db->join('employess', 'employess.nik = users.nik','left');
         return $this->db->get()->result();
     }
-
+    function GetDataUsersNeed(){
+        $this->db->select('*,users.nik as user_nik');
+        $this->db->from('users');
+        $this->db->join('employess', 'employess.nik = users.nik');
+        return $this->db->get()->result();
+    }
     function GetDataMon($school_year_id)
     {
         $query= $this->db->query("select a.nik,a.username,a.type,count(b.st_doc) as jumlah from users a left join adm_doc b on a.nik=b.nik and b.school_year_id=$school_year_id group by nik order by nik asc");
@@ -160,6 +170,30 @@ class M_guru extends CI_Model
     return $sql->result();
     }
     
+    function GetDataKelas(){
+        return $this->db->get('class_rooms')->result();
+    }
+    function GetDaftarPelajaran(){
+        return $this->db->get('lessons')->result();
+    }
+    function GetGuruMengajar(){
+        $this->db->select('*,subject_teachers.id as subject_id');
+        $this->db->from('subject_teachers');
+        $this->db->join('users', 'users.id = subject_teachers.user_id');
+        $this->db->join('lessons', 'lessons.id = subject_teachers.lesson_id');
+        $mengajar=$this->db->get()->result();
+
+        foreach($mengajar as $mj){
+            $this->db->select('*,class_room_subject_teacher.id as cs_id');
+            $this->db->from('class_room_subject_teacher');
+            $this->db->join('class_rooms', 'class_rooms.id = class_room_subject_teacher.class_room_id');
+            $this->db->where('class_room_subject_teacher.subject_teacher_id', $mj->id);
+            $detail=$this->db->get()->result();
+            $mj->detail=$detail;
+        }
+
+        return $mengajar;
+    }
     function GetDataMengajar($id){
         $this->db->select('*,lessons.name as lesson_name,class_rooms.name as class_name');
         $this->db->from('subject_teachers');

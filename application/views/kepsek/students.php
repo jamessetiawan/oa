@@ -70,7 +70,7 @@ foreach($StudentClass as $sc):?>
 
 <!-- Modal -->
 <div class="modal fade" id="formstudent" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel">Form Student</h5>
@@ -82,8 +82,8 @@ foreach($StudentClass as $sc):?>
             <input type="hidden" id="url-save" value="<?=site_url('kepsek/students/save')?>">
             <input type="hidden" id="url-update" value="<?=site_url('kepsek/students/update')?>">
 
-          <form id="form-set" method="post" enctype="multipart/form-data">
-          <div class="form-group">
+          <form id="form-set" class="form-row" method="post" enctype="multipart/form-data">
+          <div class="form-group col-12 col-lg-6">
             <label for="class">Kelas</label>
             <select class="form-control" id="class" name="class" required>    
               <option selected disabled value="">Pilih Kelas</option>
@@ -92,25 +92,25 @@ foreach($StudentClass as $sc):?>
               <?php endforeach;?>
             </select>
           </div>
-          <div class="form-group">
+          <div class="form-group col-12 col-lg-6">
             <label for="nis">NIS</label>
             <input type="text" class="form-control" placeholder="Masukan NIS" name="nis" id="nis" required>
           </div>
-          <div class="form-group">
+          <div class="form-group col-12 col-lg-6">
             <label for="name">Nama</label>
             <input type="text" class="form-control" placeholder="Masukan Nama" name="name" id="name" required>
           </div>
          
-          <div class="form-group">
+          <div class="form-group col-12 col-lg-6">
             <label for="bd_place">Tempat Lahir</label>
             <input type="text" class="form-control" placeholder="Masukan Tempat Lahir" name="bd_place" id="bd_place" required>
           </div>
-          <div class="form-group">
+          <div class="form-group col-12 col-lg-6">
             <label for="bd_date">Tanggal Lahir</label>
             <input type="date" class="form-control" placeholder="Masukan Tanggal Lahir" name="bd_date" id="bd_date" required>
           </div>
 
-          <div class="form-group">
+          <div class="form-group col-12 col-lg-6">
             <label for="gender">Jenis Kelamin</label>
             <select class="form-control" id="gender" name="gender" required>    
               <option selected disabled value="">Pilih Jenis Kelamin</option>
@@ -119,7 +119,7 @@ foreach($StudentClass as $sc):?>
             </select>
           </div>
 
-          <div class="form-group">
+          <div class="form-group col-12">
             <label for="major">Jurusan</label>
             <select class="form-control" id="major" name="major">    
               <option selected disabled value="">Pilih Jurusan</option>
@@ -131,12 +131,12 @@ foreach($StudentClass as $sc):?>
             </select>
           </div>
         
-          <div class="form-group">
+          <div class="form-group col-12">
             <label for="address">Alamat</label>
             <textarea class="form-control" id="address" rows="1" name="address" placeholder="Masukan Alamat" required></textarea>
           </div>
           
-          <div class="form-group">
+          <div class="form-group col-12">
             <label for="image">Gambar</label>
             <div class="custom-file">
             <input type="file" class="custom-file-input" id="image" name="image" accept="image/jpeg,image/png">
@@ -145,8 +145,13 @@ foreach($StudentClass as $sc):?>
           </div>
           
 
-          <button type="button" class="float-right btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="float-right btn btn-primary mr-2">Simpan</button>
+          <div class="form-group col-12">
+            <button type="button" class="float-right btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="float-right btn btn-primary mr-2">Simpan</button>
+          </div>
+          
+
+        
 
         </form>
       </div>

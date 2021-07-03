@@ -163,6 +163,9 @@
                     </div>
                   
                     <div class="row">
+                    <div class="col-12">
+                    <button onclick="window.history.back();" class="float-right mb-1 btn btn-sm btn-link" style="text-decoration:none"><i class="fas fa-caret-square-left"></i> Kembali</button>
+                    </div>
                       <div class="col-12">
                       <?php $this->load->view($content); ?>
 

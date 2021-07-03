@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Kepsek extends CI_Controller {
 
-	
+
 	public function index()
 	{
 		if($this->session->userdata('Login'))
@@ -70,6 +70,52 @@ class Kepsek extends CI_Controller {
 				$data['title']='Detail Karyawan';
 				$data['content']='kepsek/employee_detail';
 				$this->load->view('kepsek/templates',$data);
+			}elseif($method=="save"){
+				$dm=[];
+				$dm['nik']=$this->input->post('nik');
+				$dm['name']=$this->input->post('name');
+				$dm['gender']=$this->input->post('gender');
+				$dm['bd_place']=$this->input->post('bd_place');
+				$dm['bd_date']=$this->input->post('bd_date');
+				$dm['education']=$this->input->post('education');
+				$dm['degree']=$this->input->post('degree');
+
+				$dm['university']=$this->input->post('university');
+				$dm['faculty']=$this->input->post('faculty');
+				$dm['study']=$this->input->post('study');
+				$dm['marital_status']=$this->input->post('marital_status');
+				$dm['phone']=$this->input->post('phone');
+				$dm['position']=$this->input->post('position');
+				$dm['status_pendidik']=$this->input->post('status_pendidik');
+				$dm['status_pns']=$this->input->post('status_pns');
+
+				$dm['address']=$this->input->post('address');
+				$dm['image']=$this->file_upload('./asset/user/','image');
+				
+				$du=[];
+				$du['nik']=$this->input->post('nik');
+				$du['email']=$this->input->post('email');
+				$du['username']=$this->input->post('name');
+				$du['password']="smkcjt2021";
+				$du['type']="guru";
+				$du['status']="1";
+
+				$insert=$this->M_guru->AddData('employess',$dm);
+				if($insert){
+					$this->M_guru->AddData('users',$du);
+
+					$this->session->set_flashdata('status','success');
+					$this->session->set_flashdata('message','Data ditambahkan');  
+					$this->session->set_flashdata('text','data berhasil disimpan'); 
+					redirect(site_url('kepsek/employee'));
+	
+				}else{
+					$this->session->set_flashdata('status','error'); 
+					$this->session->set_flashdata('message','Data gagal ditambahkan'); 
+					$this->session->set_flashdata('text','terjadi kesalahan saat menambah data'); 
+	
+					redirect(site_url('kepsek/employee'));
+				}
 			}
 		}else{redirect(site_url('web'));}
 	}
@@ -99,7 +145,6 @@ class Kepsek extends CI_Controller {
 				$ds['class_room_id']=$this->input->post('class');
 				$ds['bd_place']=$this->input->post('bd_place');
 				$ds['bd_date']=$this->input->post('bd_date');
-				$ds['nis']=$this->input->post('nis');
 				$ds['major']=$this->input->post('major');
 				$ds['address']=$this->input->post('address');
 				$ds['image']=$this->file_upload('./asset/student/','image');
@@ -108,14 +153,14 @@ class Kepsek extends CI_Controller {
 					$this->session->set_flashdata('status','success');
 					$this->session->set_flashdata('message','Data ditambahkan');  
 					$this->session->set_flashdata('text','data berhasil disimpan'); 
-					redirect(site_url().'kepsek/students?tab=tab'.$ds['class_room_id']);
+					redirect(site_url('kepsek/students?tab=tab'.$ds['class_room_id']));
 	
 				}else{
 					$this->session->set_flashdata('status','error'); 
 					$this->session->set_flashdata('message','Data gagal ditambahkan'); 
 					$this->session->set_flashdata('text','terjadi kesalahan saat menambah data'); 
 	
-					redirect(site_url().'kepsek/students?tab=tab'.$ds['class_room_id']);
+					redirect(site_url('kepsek/students?tab=tab'.$ds['class_room_id']));
 				}
 			}
 		}else{redirect(site_url('web'));}
@@ -131,12 +176,128 @@ class Kepsek extends CI_Controller {
 			$this->load->model('M_guru');
 			if($method=="default"){
 				$data['Users']=$this->M_guru->GetDataUsers();
+				$data['Employee']= $this->M_guru->GetEmployee();
 
 				$data['title']='Data User';
 				$data['content']='kepsek/users';
 				$this->load->view('kepsek/templates',$data);
 			}elseif($method=="save"){
+				$du=[];
+				$du['nik']=$this->input->post('nik');
+				$du['email']=$this->input->post('email');
+				$du['username']=$this->input->post('username');
+				$du['password']=$this->input->post('password');
+				$du['type']=$this->input->post('type');
+				$du['status']=$this->input->post('status');
+				$check=count($this->M_guru->GetDataUser($du['nik']));
+				if($check>0){
+					$this->session->set_flashdata('status','error');
+					$this->session->set_flashdata('message','Data gagal ditambahkan');  
+					$this->session->set_flashdata('text','data telah ada sebelumnya '); 
+					redirect(site_url('kepsek/users'));
+					die;
+				}
+				
+				$insert=$this->M_guru->AddData('users',$du);
+				if($insert){
 
+					$this->session->set_flashdata('status','success');
+					$this->session->set_flashdata('message','Data ditambahkan');  
+					$this->session->set_flashdata('text','data berhasil disimpan'); 
+					redirect(site_url('kepsek/users'));
+	
+				}else{
+					$this->session->set_flashdata('status','error'); 
+					$this->session->set_flashdata('message','Data gagal ditambahkan'); 
+					$this->session->set_flashdata('text','terjadi kesalahan saat menambah data'); 
+	
+					redirect(site_url('kepsek/users'));
+				}
+			}
+		}else{redirect(site_url('web'));}
+	}
+
+	public function board($method="default",$id="")
+	{
+		if($this->session->userdata('Login'))
+		{
+
+
+
+			$this->load->model('M_guru');
+			if($method=="default"){
+				$data['Users']=$this->M_guru->GetDataUsersNeed();
+				$data['Subject']=$this->M_guru->GetGuruMengajar();
+				$data['Lessons']=$this->M_guru->GetDaftarPelajaran();
+				$data['Class']=$this->M_guru->GetDataKelas();
+
+				$data['title']='Data Mengajar';
+				$data['content']='kepsek/mengajar';
+				$data['CI']=&get_instance();
+				$this->load->view('kepsek/templates',$data);
+			}elseif($method=="save"){
+				$du=[];
+				$du['user_id']=$this->input->post('user_id');
+				$du['lesson_id']=$this->input->post('lesson_id');
+				$du['school_year_id']=$this->session->userdata('school_year_id');
+			
+				
+				$insert=$this->M_guru->AddData('subject_teachers',$du);
+				if($insert){
+
+					$this->session->set_flashdata('status','success');
+					$this->session->set_flashdata('message','Data ditambahkan');  
+					$this->session->set_flashdata('text','data berhasil disimpan'); 
+					redirect(site_url('kepsek/board'));
+	
+				}else{
+					$this->session->set_flashdata('status','error'); 
+					$this->session->set_flashdata('message','Data gagal ditambahkan'); 
+					$this->session->set_flashdata('text','terjadi kesalahan saat menambah data'); 
+	
+					redirect(site_url('kepsek/board'));
+				}
+			}elseif($method=="save_detail"){
+				$dt=[];
+				$dt['class_room_id']=$this->input->post('class_room_id');
+				$dt['subject_teacher_id']=$this->input->post('subject_teacher_id');
+				$dt['day']=$this->input->post('day');
+				$dt['time_start']=$this->input->post('time_start');
+				$dt['time_end']=$this->input->post('time_end');
+
+				
+				$insert=$this->M_guru->AddData('class_room_subject_teacher',$dt);
+				if($insert){
+
+					$this->session->set_flashdata('status','success');
+					$this->session->set_flashdata('message','Detail ditambahkan');  
+					$this->session->set_flashdata('text','data berhasil disimpan'); 
+					redirect(site_url('kepsek/board'));
+	
+				}else{
+					$this->session->set_flashdata('status','error'); 
+					$this->session->set_flashdata('message','Detail gagal ditambahkan'); 
+					$this->session->set_flashdata('text','terjadi kesalahan saat menambah data'); 
+	
+					redirect(site_url('kepsek/board'));
+				}
+			}elseif($method=="remove_detail"){
+
+				$delete=$this->M_guru->hapusData('class_room_subject_teacher','id',$id);
+				if($delete){
+
+					$this->session->set_flashdata('status','success');
+					$this->session->set_flashdata('message','Detail dihapus');  
+					$this->session->set_flashdata('text','data berhasil disimpan'); 
+					redirect(site_url('kepsek/board'));
+	
+				}else{
+					$this->session->set_flashdata('status','error'); 
+					$this->session->set_flashdata('message','Detail gagal dihapus'); 
+					$this->session->set_flashdata('text','terjadi kesalahan saat menambah data'); 
+	
+					redirect(site_url('kepsek/board'));
+				}
 			}
 		}else{redirect(site_url('web'));}
 	}

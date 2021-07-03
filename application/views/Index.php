@@ -24,11 +24,13 @@
     
     <?=$this->load->view('navbar',[],true)?>
 
-    <main>
-        <div class="container">
-            <h1 class="display-3 mt-5 text-center text-white">Online Administration</h1>
-            <h2 class="display-4 text-center text-white">SMK Negeri 1 Cijati</h2>
-            <p class="display-5 mb-5 text-center text-white">responsible for managing school administration</p>
+    <main class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            
+            <h1 class="display-3 mt-5 text-center text-white"><strong>Online Administration</strong></h1>
+            <h3 class="display-4 text-center text-white">SMK Negeri 1 Cijati</h3>
+            <p class="mb-5 text-center text-white">responsible for managing school administration</p>
             <div class="bar text-center">
             <?php 
                 $site="";
@@ -51,7 +53,9 @@
             <a href="#"  data-toggle="modal" data-target="#siteBootstrap" style="border-radius:50px !important" class="btn btn-lg btn-outline-light rounded">More</a>
 
             </div>
+          </div>
         </div>
+        
     </main>
    
 
