@@ -203,7 +203,7 @@
     <!-- Bootstrap core JavaScript-->
     <script src="<?=base_url('asset/vendor/jquery/jquery.min.js')?>"></script>
     <script src="<?=base_url('asset/vendor/bootstrap/js/bootstrap.bundle.min.js')?>"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Core plugin JavaScript-->
     <script src="<?=base_url('asset/vendor/jquery-easing/jquery.easing.min.js')?>"></script>
     <script src="<?=base_url('asset/vendor/datatables/jquery.dataTables.min.js')?>"></script>
