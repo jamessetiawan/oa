@@ -39,7 +39,7 @@ class M_guru extends CI_Model
 
     function GetDataEmpl()
     {
-        return $this->db->query("select * from employess inner join users on employess.nik=users.nik");
+        $this->db->query("select * from employess inner join users on employess.nik=users.nik");
         return $query->result();
     }
     function GetDataEmpl_a($status)
