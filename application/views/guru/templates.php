@@ -19,7 +19,7 @@
     <!-- Custom styles for this template-->
     <link href="<?=base_url('asset/css/sb-admin-2.css')?>" rel="stylesheet">
     <link href="<?=base_url('asset/vendor/datatables/dataTables.bootstrap4.min.css')?>" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
+    <link href="<?=base_url('asset/vendor/datatables/buttons.dataTables.min.css')?>" rel="stylesheet">
 
 </head>
 
@@ -224,12 +224,13 @@
     <script src="<?=base_url('asset/vendor/jquery-easing/jquery.easing.min.js')?>"></script>
     <script src="<?=base_url('asset/vendor/datatables/jquery.dataTables.min.js')?>"></script>
     <script src="<?=base_url('asset/vendor/datatables/dataTables.bootstrap4.min.js')?>"></script>
+    <script src="<?=base_url('asset/vendor/datatables/dataTables.buttons.min.js')?>"></script>
+    <script src="<?=base_url('asset/vendor/datatables/jszip.min.js')?>"></script>
+    <script src="<?=base_url('asset/vendor/datatables/pdfmake.min.js')?>"></script>
+    <script src="<?=base_url('asset/vendor/datatables/vfs_fonts.js')?>"></script>
+    <script src="<?=base_url('asset/vendor/datatables/buttons.html5.min.js')?>"></script>
 
-<script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+
                                      
     <!-- Custom scripts for all pages-->
     <script src="<?=base_url('asset/js/sb-admin-2.js')?>"></script>
