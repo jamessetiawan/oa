@@ -51,6 +51,14 @@
     ]
   });
 
+
+  $('.custom-file-input').on('change',function(){
+    //get the file name
+    let fileName = $(this).val();
+    let name=fileName.split("\\").pop();
+    //replace the "Choose a file" label
+    $(this).next('.custom-file-label').html(name);
+});
   
   // Scroll to top button appear
   $(document).on('scroll', function() {

@@ -230,6 +230,13 @@
                                 {
                               ?>
                             <badge class="badge badge-success w-50 text-center"><?php echo $GetDataMon_read->jumlah; ?></badge>
+
+                            <?php
+                                }elseif($GetDataMon_read->jumlah>1 && $GetDataMon_read->jumlah<4)
+                                {
+                              ?>
+                            <badge class="badge badge-warning w-50 text-center"><?php echo $GetDataMon_read->jumlah; ?></badge>
+
                               <?php
                                 }else
                                 {

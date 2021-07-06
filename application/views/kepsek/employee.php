@@ -241,7 +241,18 @@
             <label for="study">Bidang Mengajar</label>
             <input type="text" class="form-control" placeholder="Masukan Nama Bidang Mengajar" name="study" id="study" required>
           </div>
-
+          <div class="form-group col-12 col-lg-6">
+            <label for="degree">Jenjang</label>
+            <select class="form-control" id="degree" name="degree" required>    
+              <option selected disabled value="">Pilih Jenjang</option>
+              <option value="SMP/Sederajat">SMP/Sederajat</option>
+              <option value="SMA/Sederajat">SMA/Sederajat</option>
+              <option value="D3">D3</option>
+              <option value="D4/S1">D4/S1</option>
+              <option value="S2">S2</option>
+              <option value="S3">S3</option>
+            </select>
+          </div>
           <div class="form-group col-12 col-lg-6">
             <label for="marital_status">Status Menikah</label>
             <select class="form-control" id="marital_status" name="marital_status" required>    
@@ -257,9 +268,40 @@
             <label for="phone">Nomor Ponsel</label>
             <input type="text" class="form-control" placeholder="Masukan Nomor Ponsel" name="phone" id="phone" required>
           </div>
-          <div class="form-group col-12 col-lg-6">
+          <!-- <div class="form-group col-12 col-lg-6">
             <label for="position">Jabatan</label>
             <input type="text" class="form-control" placeholder="Masukan Jabatan" name="position" id="position" required>
+          </div> -->
+
+          <div class="form-group col-12 col-lg-6">
+            <label for="position">Jabatan</label>
+            <select class="form-control" id="position" name="position" required>    
+              <option selected disabled value="">Pilih Jenjang</option>
+              <option value="Kepala Sekolah">Kepala Sekolah</option>
+              <option value="Guru">Guru</option>
+              <option value="Bendahara">Bendahara</option>
+              <option value="Kasubag TU">Kasubag TU</option>
+              <option value="Kepala Perpustakan">Kepala Perpustakan</option>
+       
+              <option value="Waka Kurikulum">Waka Kurikulum</option>
+              <option value="Waka Kesiswaan">Waka Kesiswaan</option>
+              <option value="Waka Sapras">Waka Sapras</option>
+              <option value="Waka Hubin/Humas">Waka Hubin/Humas</option>
+              <option value="BP/BK">BP/BK</option>
+              <option value="Pokja">Pokja</option>
+              <option value="Pembina Osis">Pembina Osis</option>
+              <option value="Koor. UKS">Koor. UKS</option>
+              <option value="Koor. BKK">Koor. BKK</option>
+              <option value="Koor. Bisnis Center">Koor. Bisnis Center</option>
+              <option value="Kepala Jurusan">Kepala Jurusan</option>
+
+              <option value="Laboran">Laboran</option>
+              <option value="Operator">Operator</option>
+              <option value="Arsiparis">Arsiparis</option>
+              <option value="Cleaning Service">Cleaning Service</option>
+
+
+            </select>
           </div>
           <div class="form-group col-12 col-lg-6">
             <label for="status_pendidik">Status Pendidik</label>

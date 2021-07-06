@@ -30,7 +30,7 @@ class Kepsek extends CI_Controller {
 		$GetTotalBelum=$this->M_guru->GetTotalBelum($this->session->userdata('school_year_id'));
 		$data['GetTotalBelum']=$GetTotalBelum;
 
-		$data['title']='Monitoring Administrasi Guru';
+		$data['title']='Dashboard Monitoring Administrasi Guru';
 		$data['content']='kepsek/monitoring';
 		$this->load->view('kepsek/templates',$data);
 
@@ -162,6 +162,13 @@ class Kepsek extends CI_Controller {
 	
 					redirect(site_url('kepsek/students?tab=tab'.$ds['class_room_id']));
 				}
+			}elseif($method=="detail"){
+				$GetDetailSiswa=$this->M_guru->GetDetailSiswa($id);
+				$data['GetDetailSiswa']=$GetDetailSiswa;
+				
+				$data['title']='Detail Siswa';
+				$data['content']='kepsek/student_detail';
+				$this->load->view('kepsek/templates',$data);
 			}
 		}else{redirect(site_url('web'));}
 	}
@@ -288,13 +295,13 @@ class Kepsek extends CI_Controller {
 
 					$this->session->set_flashdata('status','success');
 					$this->session->set_flashdata('message','Detail dihapus');  
-					$this->session->set_flashdata('text','data berhasil disimpan'); 
+					$this->session->set_flashdata('text','data berhasil dihapus'); 
 					redirect(site_url('kepsek/board'));
 	
 				}else{
 					$this->session->set_flashdata('status','error'); 
 					$this->session->set_flashdata('message','Detail gagal dihapus'); 
-					$this->session->set_flashdata('text','terjadi kesalahan saat menambah data'); 
+					$this->session->set_flashdata('text','terjadi kesalahan saat menghapus data'); 
 	
 					redirect(site_url('kepsek/board'));
 				}

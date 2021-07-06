@@ -6,7 +6,19 @@ class Guru extends CI_Controller {
 	 function __construct()
     {
         parent::__construct();
-        
+		
+		if(!empty($this->session->set_userdata('check_capacity')) && $this->session->set_userdata('check_capacity')!="true"){
+			$this->load->model('M_guru');
+			$dakel=$this->M_guru->GetDataKelas();
+			foreach($dakel as $dk){
+				$count=$this->M_guru->CountSiswaKelas($dk->id);
+				$du=[];
+				$du['capacity']=$count;
+				$update=$this->M_guru->UpdateData('class_rooms','id',$dk->id,$du);
+			}
+			$this->session->set_userdata('check_capacity','true');
+		}
+		
     }
 
 	public function index(){
@@ -18,7 +30,9 @@ class Guru extends CI_Controller {
 		$data['GetDataMengajar']= $GetDataMengajar;
 		$GetDataUser= $this->M_guru->GetDataUser($this->session->userdata('nik'));
 		$data['GetDataUser']= $GetDataUser;
-		$data['title']='Detail';
+		$data['title']='Dashboard Guru';
+		$data['CI']=&get_instance();
+
 		$data['content']='guru/index';
 		$this->load->view('guru/templates',$data);
 	}
@@ -60,7 +74,7 @@ class Guru extends CI_Controller {
         $GetDataUser= $this->M_guru->GetDataUser($this->session->userdata('nik'));
         $data['GetDataUser']= $GetDataUser;
 
-		$data['title']='Upload Administrasi Guru';
+		$data['title']='Monitoring Guru';
 		$data['content']='guru/upload_dokumen';
 		$this->load->view('guru/templates',$data);
 
@@ -171,7 +185,7 @@ class Guru extends CI_Controller {
         $data['GetMengajar']= $GetMengajar;
 
         
-		$data['title']='Daftar Pelajaran yang Diajarkan';
+		$data['title']='Daftar Absensi Kelas';
 		$data['content']='guru/daftar_pelajaran';
 		$this->load->view('guru/templates',$data);
 
@@ -196,7 +210,7 @@ class Guru extends CI_Controller {
         $data['GetMengajar']= $GetMengajar;
 
         
-		$data['title']='Daftar Pelajaran yang Diajarkan';
+		$data['title']='Lihat Absensi Kelas';
 		$data['content']='guru/daftar_pelajaran2';
 		$this->load->view('guru/templates',$data);
 

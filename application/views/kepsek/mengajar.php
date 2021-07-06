@@ -1,5 +1,7 @@
 
-
+<?php
+   $CI->load->library('day');
+?>
               <div class="table-responsive">
               <button class="btn btn-sm btn-primary float-right ml-2 btn-add" data-toggle="modal" data-target="#formsubject"><i class="fas fa-plus-circle"></i> Baru</button>
                 <table class="table no-margin datatable">
@@ -28,8 +30,7 @@
                             <td><?=$sbj->username; ?></td>
                              
                             <td>
-                            Mapel :  <?=$sbj->name; ?> /
-                            Waktu :  <?=$jumlah=$sbj->time; ?> Jam
+                            Mapel :  <?=$sbj->name; ?>
 
                             <button class="float-right btn btn-sm btn-link add-detail" data-id="<?=$sbj->subject_id; ?>" data-toggle="modal" data-target="#formteaching" style="text-docoration:none"><i class="fas fa-plus-square"></i></button>
                               <table class="table table-bordered" style="font-size:8pt">
@@ -41,10 +42,9 @@
                                   <th>Action </th>
                                 </tr>
                                 <?php
-                                $CI->load->library('day');
-                                  $no=0;
+                                  $ns=0;
                                   foreach($sbj->detail as $detail):
-                                    $no++;
+                                    $ns++;
                                 ?>
                                 <tr>
                                   <td><?=$detail->name?></td>
@@ -56,10 +56,7 @@
 
                                 <?php 
                                 endforeach;?>
-                                <tr>
-                                <td colspan="4" class="text-right">Jumlah Mengajar </td>
-                                <td><?=$jumlah*$no?> Jam</td>
-                                </tr>
+                           
                               </table>
                             </td>
                           </tr>
@@ -108,7 +105,7 @@
             <select class="form-control" id="lesson_id" name="lesson_id" required>    
               <option selected disabled value="">Pilih Data Pelajaran</option>
               <?php foreach($Lessons as $lsn):?>
-                   <option value="<?=$lsn->id?>"><?=$lsn->name?> - <?=$lsn->time?> Jam</option>
+                   <option value="<?=$lsn->id?>"><?=$lsn->name?></option>
               <?php endforeach;?>
             </select>
           </div>

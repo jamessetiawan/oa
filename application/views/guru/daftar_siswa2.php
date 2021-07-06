@@ -3,6 +3,8 @@
                 <table class="table datatable-export no-margin">
                   <thead>
                   <?php
+
+                        $awal=1;
                             if(!empty($GetCekPertemuan))
                             {
                                   $awal=1;

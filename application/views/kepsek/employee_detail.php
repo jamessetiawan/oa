@@ -1,6 +1,6 @@
 <h5>Biodata Guru dan Staf</h5>
 <div class="row border border-secondary" style="border-color:#ccd !important">
-<div class="col-3 pt-5 pl-5 pr-5 pb-5">
+<div class="col-12 col-lg-3 pt-5 pl-5 pr-5 pb-5">
 <?php if(!empty($GetDetailEmpl['image'])):?>
 <img src="<?=base_url('asset/user/'.$GetDetailEmpl['image'])?>" class="w-100">
 <?php else:?>
@@ -9,7 +9,7 @@
 <br>
 <?=$GetDetailEmpl['nik']?>
 </div>
-<div class="col-9 pt-5 pb-3">
+<div class="col-12 col-lg-9 pt-5 pb-3">
 <h6 class="text-dark">Nama</h6>
 <p><?=$GetDetailEmpl['name']?></p>
 <h6 class="text-dark">Tempat, Tanggal Lahir</h6>

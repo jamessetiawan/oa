@@ -63,6 +63,15 @@ class M_guru extends CI_Model
         return $this->db->get()->result();
     }
 
+    function GetDetailSiswa($id){
+        $this->db->select('*,students.name as student_name, class_rooms.name as class_name,class_rooms.id as class_id');
+        $this->db->from('students');
+        $this->db->join('class_rooms', 'class_rooms.id = students.class_room_id');
+        $this->db->where('students.nis',$id);
+        return $this->db->get()->row_array();
+    }
+
+
     function GetDataStudentClass(){
         $this->db->select('*,students.name as student_name, class_rooms.name as class_name,class_rooms.id as class_id');
         $this->db->from('students');
@@ -173,6 +182,10 @@ class M_guru extends CI_Model
     function GetDataKelas(){
         return $this->db->get('class_rooms')->result();
     }
+    function CountSiswaKelas($id){
+        return $this->db->get_where('students',array('class_room_id' => $id))->num_rows();
+
+    }
     function GetDaftarPelajaran(){
         return $this->db->get('lessons')->result();
     }
@@ -182,14 +195,18 @@ class M_guru extends CI_Model
         $this->db->join('users', 'users.id = subject_teachers.user_id');
         $this->db->join('lessons', 'lessons.id = subject_teachers.lesson_id');
         $mengajar=$this->db->get()->result();
-
+        
         foreach($mengajar as $mj){
             $this->db->select('*,class_room_subject_teacher.id as cs_id');
             $this->db->from('class_room_subject_teacher');
             $this->db->join('class_rooms', 'class_rooms.id = class_room_subject_teacher.class_room_id');
-            $this->db->where('class_room_subject_teacher.subject_teacher_id', $mj->id);
+            $this->db->where('class_room_subject_teacher.subject_teacher_id', $mj->subject_id);
             $detail=$this->db->get()->result();
-            $mj->detail=$detail;
+            if($detail){
+                $mj->detail=$detail;
+            }else{
+                $mj->detail=[];
+            }
         }
 
         return $mengajar;

@@ -22,8 +22,8 @@ class Web extends CI_Controller {
 				$email=$this->input->post('email');
 				$password=$this->input->post('password');
 
-				$notif = $this->MLogin->GoLogin($email,$password);
-				if($notif){
+				$login = $this->MLogin->GoLogin($email,$password);
+				if($login){
 					$this->session->set_userdata('Login','OnLogin');
 					if($this->session->userdata('type')=='guru')
 					{

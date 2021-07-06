@@ -29,7 +29,7 @@
 				}
 
 				$this->db->select('*');
-				$this->db->from('school_year2');
+				$this->db->from('school_year');
 				$this->db->where('status',1);
 				$sql=$this->db->get();
 				$ta=$sql->row();
