@@ -4,7 +4,7 @@
                   <thead>
                   <tr>
                       <td colspan="4">
-                        <select name="pert" class="form-control">
+                        <select name="pert" class="form-control" required>
                           <option value="">Silahkan Pilih Pertemuan Ke ...</option>
                            <?php
                            $awal=1;
