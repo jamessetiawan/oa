@@ -9,17 +9,17 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><?=$title?></title>
+    <title><?= $title ?></title>
 
     <!-- Custom fonts for this template-->
-    <link href="<?=base_url('asset/vendor/fontawesome-free/css/all.min.css')?>" rel="stylesheet" type="text/css">
+    <link href="<?= base_url('asset/vendor/fontawesome-free/css/all.min.css') ?>" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600%7cPlayfair+Display:400i" rel="stylesheet">
 
 
     <!-- Custom styles for this template-->
-    <link href="<?=base_url('asset/css/sb-admin-2.css')?>" rel="stylesheet">
-    <link href="<?=base_url('asset/vendor/datatables/dataTables.bootstrap4.min.css')?>" rel="stylesheet">
-    <link href="<?=base_url('asset/vendor/datatables/buttons.dataTables.min.css')?>" rel="stylesheet">
+    <link href="<?= base_url('asset/css/sb-admin-2.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('asset/vendor/datatables/dataTables.bootstrap4.min.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('asset/vendor/datatables/buttons.dataTables.min.css') ?>" rel="stylesheet">
 
 </head>
 
@@ -32,7 +32,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?=base_url('index.php/Guru')?>">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('index.php/Guru') ?>">
                 <div class="sidebar-brand-icon">
                     <i class="fas fa-broadcast-tower"></i>
                 </div>
@@ -44,7 +44,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="<?=base_url('index.php/Guru')?>">
+                <a class="nav-link" href="<?= base_url('index.php/Guru') ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -84,7 +84,7 @@
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
-           
+
 
         </ul>
         <!-- End of Sidebar -->
@@ -104,36 +104,31 @@
                     </button>
 
                     <div class="d-sm-flex align-items-center justify-content-between ml-2">
-                        <h1 class="h5 mb-0 text-gray-800">Dashboard Online Administration</h1>
+                        <h1 class="h5 mb-0 text-gray-800">Administrasi Online SMKN 1 Cijati</h1>
                     </div>
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                  
+
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <?php
-                                        if(!empty($GetDataUser))
-                                          {
-                                          
-                                              foreach($GetDataUser as $GetDataUser_read)
-                                              {
-                                                $nama_guru=$GetDataUser_read->username;
-                                              }
-                                          }
+                                if (!empty($GetDataUser)) {
+
+                                    foreach ($GetDataUser as $GetDataUser_read) {
+                                        $nama_guru = $GetDataUser_read->username;
+                                    }
+                                }
                                 ?>
-          
+
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small text-uppercase">
-                                      <?php echo $nama_guru; ?></span>
-                                <img class="img-profile rounded-circle"
-                                    src="<?=base_url('asset/img/undraw_profile.svg')?>">
+                                    <?php echo $nama_guru; ?></span>
+                                <img class="img-profile rounded-circle" src="<?= base_url('asset/img/undraw_profile.svg') ?>">
                             </a>
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <a class="dropdown-item text-uppercase" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     <?php echo $nama_guru; ?> / GURU / NIK : <?php echo $this->session->userdata('nik'); ?>
@@ -157,26 +152,26 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <small style="font-size:10pt">Sistem Informasi Monitoring Kelengkapan Administrasi Guru Tahun Ajaran : <?php echo $this->session->userdata('school_year_nama'); ?></small>
-                      <br>
-                      <span class="badge badge-pill badge-primary"><?php echo $title; ?></span>
+                        <br>
+                        <span class="badge badge-pill badge-primary"><?php echo $title; ?></span>
 
                     </div>
-                  
+
                     <div class="row">
-                    <div class="col-12">
-                    <button onclick="window.history.back();" class="float-right mb-1 btn btn-sm btn-link" style="text-decoration:none"><i class="fas fa-caret-square-left"></i> Kembali</button>
-                    </div>
-                      <div class="col-12">
-                      <?php $this->load->view($content); ?>
+                        <div class="col-12">
+                            <button onclick="window.history.back();" class="float-right mb-1 btn btn-sm btn-link" style="text-decoration:none"><i class="fas fa-caret-square-left"></i> Kembali</button>
+                        </div>
+                        <div class="col-12">
+                            <?php $this->load->view($content); ?>
 
-                      </div>
+                        </div>
                     </div>
 
                     <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-    
+                    <a class="scroll-to-top rounded" href="#page-top">
+                        <i class="fas fa-angle-up"></i>
+                    </a>
+
 
                 </div>
                 <!-- /.container-fluid -->
@@ -185,7 +180,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-           
+
             <!-- End of Footer -->
 
         </div>
@@ -194,11 +189,10 @@
     </div>
     <!-- End of Page Wrapper -->
 
-    
+
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -217,38 +211,35 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="<?=base_url('asset/vendor/jquery/jquery.min.js')?>"></script>
-    <script src="<?=base_url('asset/vendor/bootstrap/js/bootstrap.bundle.min.js')?>"></script>
-    <script src="<?=base_url('asset/vendor/swal/swal.js')?>"></script>
+    <script src="<?= base_url('asset/vendor/jquery/jquery.min.js') ?>"></script>
+    <script src="<?= base_url('asset/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+    <script src="<?= base_url('asset/vendor/swal/swal.js') ?>"></script>
     <!-- Core plugin JavaScript-->
-    <script src="<?=base_url('asset/vendor/jquery-easing/jquery.easing.min.js')?>"></script>
-    <script src="<?=base_url('asset/vendor/datatables/jquery.dataTables.min.js')?>"></script>
-    <script src="<?=base_url('asset/vendor/datatables/dataTables.bootstrap4.min.js')?>"></script>
-    <script src="<?=base_url('asset/vendor/datatables/dataTables.buttons.min.js')?>"></script>
-    <script src="<?=base_url('asset/vendor/datatables/jszip.min.js')?>"></script>
-    <script src="<?=base_url('asset/vendor/datatables/pdfmake.min.js')?>"></script>
-    <script src="<?=base_url('asset/vendor/datatables/vfs_fonts.js')?>"></script>
-    <script src="<?=base_url('asset/vendor/datatables/buttons.html5.min.js')?>"></script>
+    <script src="<?= base_url('asset/vendor/jquery-easing/jquery.easing.min.js') ?>"></script>
+    <script src="<?= base_url('asset/vendor/datatables/jquery.dataTables.min.js') ?>"></script>
+    <script src="<?= base_url('asset/vendor/datatables/dataTables.bootstrap4.min.js') ?>"></script>
+    <script src="<?= base_url('asset/vendor/datatables/dataTables.buttons.min.js') ?>"></script>
+    <script src="<?= base_url('asset/vendor/datatables/jszip.min.js') ?>"></script>
+    <script src="<?= base_url('asset/vendor/datatables/pdfmake.min.js') ?>"></script>
+    <script src="<?= base_url('asset/vendor/datatables/vfs_fonts.js') ?>"></script>
+    <script src="<?= base_url('asset/vendor/datatables/buttons.html5.min.js') ?>"></script>
 
 
-                                     
+
     <!-- Custom scripts for all pages-->
-    <script src="<?=base_url('asset/js/sb-admin-2.js')?>"></script>
+    <script src="<?= base_url('asset/js/sb-admin-2.js') ?>"></script>
 
-    <?php if(!empty($_GET['error']) && $_GET['error']=="file"):?>
+    <?php if (!empty($_GET['error']) && $_GET['error'] == "file") : ?>
 
-<script>
-  Swal.fire(
-{
-  title: 'Upload gagal',
-  html: "file yang diupload hanya ekstensi <br>(.doc .xls .docx .xlsx .zip .rar)",
-  icon: 'error',
-  confirmButtonColor: '#4469d7',
-}
-);
-
-</script>
-<?php endif;?>
+        <script>
+            Swal.fire({
+                title: 'Upload gagal',
+                html: "file yang diupload hanya ekstensi <br>(.doc .xls .docx .xlsx .zip .rar)",
+                icon: 'error',
+                confirmButtonColor: '#4469d7',
+            });
+        </script>
+    <?php endif; ?>
 </body>
 
 </html>
