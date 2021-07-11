@@ -27,7 +27,7 @@
                             <td><?php echo $no++; ?></td>
                             <td><?php echo $GetDaftarKelas_read->name; ?></td>
                             <td><?php echo $GetDaftarKelas_read->capacity; ?></td>
-                            <td><a href="<?php echo site_url('Guru/daftar_siswa2/'.$this->uri->segment(3).'/'.$GetDaftarKelas_read->id); ?>">Lihat Siswa</a></td>
+                            <td><a href="<?php echo site_url('Guru/daftar_siswa2/'.$this->uri->segment(3).'/'.$GetDaftarKelas_read->id.'?kelas='.$GetDaftarKelas_read->name); ?>">Lihat Siswa</a></td>
                           </tr>
                   <?php
                             }

@@ -44,10 +44,10 @@
                                 </div>
                                 <form class="user" action="" method="post">
                                     <div class="form-group">
-                                        <input type="text" name="email" class="form-control form-control-user" placeholder="Enter NIK/Email">
+                                        <input type="text" name="email" class="form-control form-control-user" placeholder="Enter NIK/Email" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="password" class="form-control form-control-user" placeholder="Password">
+                                        <input type="password" name="password" class="form-control form-control-user" placeholder="Password" required>
                                     </div>
                                     
                                     <button type="submit" name="btn_login" class="btn btn-primary btn-user btn-block">

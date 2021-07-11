@@ -248,6 +248,7 @@ class Guru extends CI_Controller {
 
 	public function daftar_kelas2()
 	{
+		$this->session->set_userdata('mapel',$this->input->get('mapel'));
 		if($this->session->userdata('Login'))
 		{
 
@@ -303,6 +304,9 @@ class Guru extends CI_Controller {
 
 	public function daftar_siswa2()
 	{
+
+		$this->session->set_userdata('kelas',$this->input->get('kelas'));
+
 		if($this->session->userdata('Login'))
 		{
 
@@ -319,7 +323,8 @@ class Guru extends CI_Controller {
         $data['GetMonPertemuan']= $GetMonPertemuan;
 
         
-		$data['title']='Daftar Monitoring Absensi Siswa';
+	
+		$data['title']='Daftar Monitoring Absensi Siswa | Kelas '.$this->session->userdata('kelas').'  |  Mata Pelajaran '.$this->session->userdata('mapel');
 		$data['content']='guru/daftar_siswa2';
 		$this->load->view('guru/templates',$data);
 

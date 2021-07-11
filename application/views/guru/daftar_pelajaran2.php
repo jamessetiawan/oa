@@ -19,7 +19,7 @@
                           <tr>
                             <td><?php echo $no++; ?></td>
                             <td><?php echo $GetMengajar_read->name; ?></td>
-                            <td><a href="<?php echo site_url('Guru/daftar_kelas2/'.$GetMengajar_read->id); ?>">Lihat Kelas</a></td>
+                            <td><a href="<?php echo site_url('Guru/daftar_kelas2/'.$GetMengajar_read->id.'?mapel='.$GetMengajar_read->name); ?>">Lihat Kelas</a></td>
                           </tr>
                   <?php
                           

@@ -40,7 +40,7 @@
     "searching": false,
     "paging": false
   });
-
+  
   $('.datatable-export').DataTable({
     dom: 'Bfrtip',
     buttons: [
