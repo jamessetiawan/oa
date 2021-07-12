@@ -7,11 +7,9 @@
 		function GoLogin($email,$password){
 			$this->db->select('*');
 			$this->db->from('users');
-			$this->db->where('email', $email);
-			$this->db->or_where('users.nik =', $email); 
-			$this->db->where('password', $password);
-			
+			$this->db->where("(email='{$email}' or nik='{$email}') and password='{$password}'");
 			$query = $this->db->get();
+		
 			
 			if($query -> num_rows() == 1){
 				$row = $query->row(); 
