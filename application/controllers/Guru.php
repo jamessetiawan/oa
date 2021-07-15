@@ -7,7 +7,7 @@ class Guru extends CI_Controller {
     {
         parent::__construct();
 		
-		if(!empty($this->session->set_userdata('check_capacity')) && $this->session->set_userdata('check_capacity')!="true"){
+		if(empty($this->session->set_userdata('check_capacity')) && $this->session->set_userdata('check_capacity')!="true"){
 			$this->load->model('M_guru');
 			$dakel=$this->M_guru->GetDataKelas();
 			foreach($dakel as $dk){

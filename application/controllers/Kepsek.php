@@ -86,7 +86,7 @@ class Kepsek extends CI_Controller {
 				$dm['marital_status']=$this->input->post('marital_status');
 				$dm['phone']=$this->input->post('phone');
 				$dm['position']=$this->input->post('position');
-				$dm['status_pendidik']=$this->input->post('status_pendidik');
+				$dm['status_pendidik']=$sp=$this->input->post('status_pendidik');
 				$dm['status_pns']=$this->input->post('status_pns');
 
 				$dm['address']=$this->input->post('address');
@@ -97,7 +97,11 @@ class Kepsek extends CI_Controller {
 				$du['email']=$this->input->post('email');
 				$du['username']=$this->input->post('name');
 				$du['password']="smkcjt2021";
-				$du['type']="guru";
+				if($sp=="1"){
+					$du['type']="guru";
+				}else{
+					$du['type']="staff";
+				}
 				$du['status']="1";
 
 				$insert=$this->M_guru->AddData('employess',$dm);

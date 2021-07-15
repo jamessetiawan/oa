@@ -223,6 +223,7 @@
                           <tr>
                             <td><?php echo $no++; ?></td>
                             <td><?php echo $GetDataMon_read->nik; ?></td>
+
                             <td><?php echo $GetDataMon_read->username; ?></b></td>
                             <td>&nbsp;&nbsp;&nbsp;
                               <?php

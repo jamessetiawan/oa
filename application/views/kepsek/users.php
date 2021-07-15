@@ -104,6 +104,8 @@
               <option selected disabled value="">Pilih Tipe</option>
               <option value="admin">Admin</option>
               <option value="guru">Guru</option>
+              <option value="staff">Staff TU</option>
+
             </select>
           </div>
         

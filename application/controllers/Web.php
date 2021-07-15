@@ -25,7 +25,7 @@ class Web extends CI_Controller {
 				$login = $this->MLogin->GoLogin($email,$password);
 				if($login){
 					$this->session->set_userdata('Login','OnLogin');
-					if($this->session->userdata('type')=='guru')
+					if($this->session->userdata('type')=='guru' || $this->session->userdata('type')=='staff')
 					{
 						redirect(site_url('guru'));
 					}

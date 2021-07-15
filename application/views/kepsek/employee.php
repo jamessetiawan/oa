@@ -242,18 +242,6 @@
             <input type="text" class="form-control" placeholder="Masukan Nama Bidang Mengajar" name="study" id="study" required>
           </div>
           <div class="form-group col-12 col-lg-6">
-            <label for="degree">Jenjang</label>
-            <select class="form-control" id="degree" name="degree" required>    
-              <option selected disabled value="">Pilih Jenjang</option>
-              <option value="SMP/Sederajat">SMP/Sederajat</option>
-              <option value="SMA/Sederajat">SMA/Sederajat</option>
-              <option value="D3">D3</option>
-              <option value="D4/S1">D4/S1</option>
-              <option value="S2">S2</option>
-              <option value="S3">S3</option>
-            </select>
-          </div>
-          <div class="form-group col-12 col-lg-6">
             <label for="marital_status">Status Menikah</label>
             <select class="form-control" id="marital_status" name="marital_status" required>    
               <option selected disabled value="">Pilih Status Menikah</option>
@@ -261,7 +249,6 @@
               <option value="Bertunangan">Bertunangan</option>
               <option value="Sudah Menikah">Sudah Menikah</option>
               <option value="Duda/Janda">Duda/Janda</option>
-              <option value="Hubungan Tanpa Status">Hubungan Tanpa Status</option>
             </select>
           </div>
           <div class="form-group col-12 col-lg-6">
@@ -276,7 +263,7 @@
           <div class="form-group col-12 col-lg-6">
             <label for="position">Jabatan</label>
             <select class="form-control" id="position" name="position" required>    
-              <option selected disabled value="">Pilih Jenjang</option>
+              <option selected disabled value="">Pilih Jabatan</option>
               <option value="Kepala Sekolah">Kepala Sekolah</option>
               <option value="Guru">Guru</option>
               <option value="Bendahara">Bendahara</option>
