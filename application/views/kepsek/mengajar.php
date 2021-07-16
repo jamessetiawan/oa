@@ -32,6 +32,12 @@
                             <td>
                             Mapel :  <?=$sbj->name; ?>
 
+                            <button onclick="Swal.fire({icon: 'warning',title: 'Hapus data?',confirmButtonColor: '#486dda',showCancelButton: true,}).then((result) => {
+                                      if (result.isConfirmed) {
+                                        location.href='<?=site_url('kepsek/board/remove/'.$sbj->subject_id)?>'
+                                      } 
+                                    })" class="float-right btn btn-sm btn-link" ><i class="fas fa-trash-alt"></i></button>
+
                             <button class="float-right btn btn-sm btn-link add-detail" data-id="<?=$sbj->subject_id; ?>" data-toggle="modal" data-target="#formteaching" style="text-docoration:none"><i class="fas fa-plus-square"></i></button>
                               <table class="table table-bordered" style="font-size:8pt">
                                 <tr>

@@ -224,6 +224,25 @@ class Kepsek extends CI_Controller {
 	
 					redirect(site_url('kepsek/users'));
 				}
+			}elseif($method=="remove"){
+				
+			
+				
+				$remove=$this->M_guru->hapusData('users','id',$id);
+				if($remove){
+
+					$this->session->set_flashdata('status','success');
+					$this->session->set_flashdata('message','Data dihapus');  
+					$this->session->set_flashdata('text','data berhasil dihapus'); 
+					redirect(site_url('kepsek/users'));
+	
+				}else{
+					$this->session->set_flashdata('status','error'); 
+					$this->session->set_flashdata('message','Data gagal dihapus'); 
+					$this->session->set_flashdata('text','terjadi kesalahan saat menghapus data'); 
+	
+					redirect(site_url('kepsek/users'));
+				}
 			}
 		}else{redirect(site_url('web'));}
 	}
@@ -265,6 +284,24 @@ class Kepsek extends CI_Controller {
 					$this->session->set_flashdata('status','error'); 
 					$this->session->set_flashdata('message','Data gagal ditambahkan'); 
 					$this->session->set_flashdata('text','terjadi kesalahan saat menambah data'); 
+	
+					redirect(site_url('kepsek/board'));
+				}
+			}elseif($method=="remove"){
+				
+				$remove=$this->M_guru->hapusData('subject_teachers','id',$id);
+				if($remove){
+					$this->M_guru->hapusData('class_room_subject_teacher','subject_teacher_id',$id);
+
+					$this->session->set_flashdata('status','success');
+					$this->session->set_flashdata('message','Data dihapus');  
+					$this->session->set_flashdata('text','data berhasil disimpan'); 
+					redirect(site_url('kepsek/board'));
+	
+				}else{
+					$this->session->set_flashdata('status','error'); 
+					$this->session->set_flashdata('message','Data gagal dihapus'); 
+					$this->session->set_flashdata('text','terjadi kesalahan saat menghapus data'); 
 	
 					redirect(site_url('kepsek/board'));
 				}

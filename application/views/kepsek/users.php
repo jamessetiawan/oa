@@ -10,6 +10,8 @@
                     <th>Nama</th>
                     <th>Email</th>
                     <th>Tipe</th>
+                    <th>Action</th>
+
                   </tr>
                   </thead>
                   <tbody>
@@ -38,6 +40,14 @@
                             </td>
                             <td>
                             <?=$usr->type; ?>
+
+                            </td>
+                            <td>
+                            <button onclick="Swal.fire({icon: 'warning',title: 'Hapus data?',confirmButtonColor: '#486dda',showCancelButton: true,}).then((result) => {
+                                      if (result.isConfirmed) {
+                                        location.href='<?=site_url('kepsek/users/remove/'.$usr->id)?>'
+                                      } 
+                                    })" class="float-right btn btn-sm btn-link" ><i class="fas fa-trash-alt"></i></button>
 
                             </td>
                          
