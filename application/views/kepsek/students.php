@@ -1,6 +1,6 @@
-
+<?php if($this->session->userdata('type')!='kepsek'):?>
 <button class="btn btn-sm btn-primary float-right mb-3 btn-add" data-toggle="modal" data-target="#formstudent"><i class="fas fa-plus-circle"></i> Baru</button>
-
+<?php endif;?>
 <ul class="nav nav-tabs" id="myTab" role="tablist">
 
 <?php

@@ -3,8 +3,12 @@
    $CI->load->library('day');
 ?>
               <div class="table-responsive">
+              <?php
+                  if($this->session->userdata('type')!='kepsek'):
+                ?>
               <button class="btn btn-sm btn-primary float-right ml-2 btn-add" data-toggle="modal" data-target="#formsubject"><i class="fas fa-plus-circle"></i> Baru</button>
-                <table class="table no-margin datatable">
+              <?php endif;?>  
+              <table class="table no-margin datatable">
                   <thead>
                   <tr>
                     <th>No</th>
@@ -31,7 +35,9 @@
                              
                             <td>
                             Mapel :  <?=$sbj->name; ?>
-
+                            <?php
+                  if($this->session->userdata('type')!='kepsek'):
+                ?>
                             <button onclick="Swal.fire({icon: 'warning',title: 'Hapus data?',confirmButtonColor: '#486dda',showCancelButton: true,}).then((result) => {
                                       if (result.isConfirmed) {
                                         location.href='<?=site_url('kepsek/board/remove/'.$sbj->subject_id)?>'
@@ -39,7 +45,8 @@
                                     })" class="float-right btn btn-sm btn-link" ><i class="fas fa-trash-alt"></i></button>
 
                             <button class="float-right btn btn-sm btn-link add-detail" data-id="<?=$sbj->subject_id; ?>" data-toggle="modal" data-target="#formteaching" style="text-docoration:none"><i class="fas fa-plus-square"></i></button>
-                              <table class="table table-bordered" style="font-size:8pt">
+                            <?php endif;?> 
+                            <table class="table table-bordered" style="font-size:8pt">
                                 <tr>
                                   <th>Kelas</th>
                                   <th>Hari</th>
@@ -57,7 +64,15 @@
                                   <td><?=$CI->day->to_text($detail->day);?></td>
                                   <td><?=date('H:i',strtotime($detail->time_start))?></td>
                                   <td><?=date('H:i',strtotime($detail->time_end))?></td>
-                                  <td><button onclick="location.href='<?=site_url('kepsek/board/remove_detail/'.$detail->cs_id)?>'" class="btn btn-sm btn-link" ><i class="fas fa-trash-alt"></i></button></td>
+                                  <td>
+                                  <?php
+                  if($this->session->userdata('type')!='kepsek'):
+                ?>
+                                  <button onclick="location.href='<?=site_url('kepsek/board/remove_detail/'.$detail->cs_id)?>'" class="btn btn-sm btn-link" ><i class="fas fa-trash-alt"></i></button>
+                                <?php else:?>
+                                  no action
+                                  <?php endif;?>
+                                </td>
                                 </tr>
 
                                 <?php 

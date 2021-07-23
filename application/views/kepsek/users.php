@@ -1,8 +1,12 @@
 
 
               <div class="table-responsive">
+              <?php
+                  if($this->session->userdata('type')!='kepsek'):
+                ?>
               <button class="btn btn-sm btn-primary float-right ml-2 btn-add" data-toggle="modal" data-target="#formusers"><i class="fas fa-plus-circle"></i> Baru</button>
-                <table class="table no-margin datatable">
+              <?php endif;?>  
+              <table class="table no-margin datatable">
                   <thead>
                   <tr>
                     <th>No</th>
@@ -43,11 +47,17 @@
 
                             </td>
                             <td>
+                            <?php
+                  if($this->session->userdata('type')!='kepsek'):
+                ?>
                             <button onclick="Swal.fire({icon: 'warning',title: 'Hapus data?',confirmButtonColor: '#486dda',showCancelButton: true,}).then((result) => {
                                       if (result.isConfirmed) {
                                         location.href='<?=site_url('kepsek/users/remove/'.$usr->id)?>'
                                       } 
                                     })" class="float-right btn btn-sm btn-link" ><i class="fas fa-trash-alt"></i></button>
+                                <?php else:?>
+                                  no action
+                                <?php endif;?>
 
                             </td>
                          
@@ -113,6 +123,7 @@
             <select class="form-control" id="type" name="type" required>    
               <option selected disabled value="">Pilih Tipe</option>
               <option value="admin">Admin</option>
+              <option value="kepsek">Kepala Sekolah</option>
               <option value="guru">Guru</option>
               <option value="staff">Staff TU</option>
 

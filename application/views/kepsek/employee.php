@@ -109,8 +109,12 @@
 
 
               <div class="table-responsive">
+                <?php
+                  if($this->session->userdata('type')!='kepsek'):
+                ?>
               <button class="btn btn-sm btn-primary float-right ml-2 btn-add" data-toggle="modal" data-target="#formemployee" ><i class="fas fa-plus-circle"></i> Baru</button>
-                <table class="table no-margin datatable">
+                    <?php endif;?>
+              <table class="table no-margin datatable">
                   <thead>
                   <tr>
                     <th>No</th>
@@ -255,11 +259,7 @@
             <label for="phone">Nomor Ponsel</label>
             <input type="text" class="form-control" placeholder="Masukan Nomor Ponsel" name="phone" id="phone" required>
           </div>
-          <!-- <div class="form-group col-12 col-lg-6">
-            <label for="position">Jabatan</label>
-            <input type="text" class="form-control" placeholder="Masukan Jabatan" name="position" id="position" required>
-          </div> -->
-
+         
           <div class="form-group col-12 col-lg-6">
             <label for="position">Jabatan</label>
             <select class="form-control" id="position" name="position" required>    

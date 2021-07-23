@@ -248,10 +248,15 @@
                               ?>
                           </td>
                             <td>
-                              
+                            <?php
+                  if($this->session->userdata('type')!='kepsek'):
+                ?>
                                 <a href="<?php echo site_url('Kepsek/cekdata/'.$GetDataMon_read->nik); ?>">
                       <i class="fa fa-eye"></i> Cek Dokumen
                             </td>
+                            <?php else:?>
+                              no action
+                            <?php endif;?>
                             
                           </tr>
                   <?php
