@@ -52,7 +52,7 @@ class Guru extends CI_Controller
 			$GetDataMengajarTerbaru = $this->M_guru->GetDataMengajarTerbaru();
 			$data['GetDataMengajarTerbaru'] = $GetDataMengajarTerbaru;
 
-			$data['title'] = 'Upload Administrasi Guru';
+			$data['title'] = 'Monitor Perangkat Belajar';
 			$data['content'] = 'guru/rekap';
 			$this->load->view('guru/templates', $data);
 		} else {
@@ -73,7 +73,7 @@ class Guru extends CI_Controller
 			$GetDataUser = $this->M_guru->GetDataUser($this->session->userdata('nik'));
 			$data['GetDataUser'] = $GetDataUser;
 
-			$data['title'] = 'Monitoring Guru';
+			$data['title'] = 'Upload Dokumen';
 			$data['content'] = 'guru/upload_dokumen';
 			$this->load->view('guru/templates', $data);
 		} else {
@@ -301,7 +301,7 @@ class Guru extends CI_Controller
 
 
 
-			$data['title'] = 'Daftar Monitoring Absensi Siswa | Kelas ' . $this->session->userdata('kelas') . '  |  Mata Pelajaran ' . $this->session->userdata('mapel');
+			$data['title'] = 'Absensi Kehadiran Siswa | Kelas ' . $this->session->userdata('kelas') . '  |  Mata Pelajaran ' . $this->session->userdata('mapel');
 			$data['content'] = 'guru/daftar_siswa2';
 			$this->load->view('guru/templates', $data);
 		} else {

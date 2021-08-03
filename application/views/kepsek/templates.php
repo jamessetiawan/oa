@@ -50,23 +50,23 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo site_url('Kepsek/employee'); ?>">
                     <i class="fas fa-user-tie"></i>
-                    <span>Employee</span></a>
+                    <span>Manage Data Karyawan</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo site_url('Kepsek/students'); ?>">
                     <i class="fas fa-user-graduate"></i>
-                    <span>Students</span></a>
+                    <span>Manage Data Siswa</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo site_url('Kepsek/board'); ?>">
                     <i class="fas fa-chalkboard-teacher"></i>
-                    <span>Board Teacher</span></a>
+                    <span>Manage Data Mengajar</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo site_url('Kepsek/users'); ?>">
                     <i class="fas fa-users-cog"></i>
-                    <span>Users</span></a>
+                    <span>Manage Akun Pengguna</span></a>
             </li>
 
 

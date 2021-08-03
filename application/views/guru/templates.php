@@ -56,24 +56,24 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo site_url('Guru/upload_dokumen'); ?>">
                     <i class="fas fa-fw fa-file-import"></i>
-                    <span>Upload Dokumen</span></a>
+                    <span>Upload Perangkat Pembelajaran</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo site_url('Guru/rekap'); ?>">
                     <i class="fas fa-fw fa-project-diagram"></i>
-                    <span>Monitoring</span></a>
+                    <span>Monitoring Perangkat Pembelajaran</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo site_url('Guru/daftar_pelajaran'); ?>">
                     <i class="fas fa-fw fa-calendar-day"></i>
-                    <span>Absensi Kelas</span></a>
+                    <span>Kelola Absensi Siswa</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo site_url('Guru/daftar_pelajaran2'); ?>">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Lihat Absensi</span></a>
+                    <span>Lihat Absensi Siswa</span></a>
             </li>
 
             <!-- Divider -->
